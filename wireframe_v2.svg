@@ -1,0 +1,367 @@
+<svg width="720" height="2600" viewBox="0 0 720 2600" xmlns="http://www.w3.org/2000/svg" role="img">
+  <title>StudyBuddy v2 — Wireframe</title>
+  <desc>Wireframe посадочной страницы и личного кабинета StudyBuddy с авторизацией, предметами, задачами и аватаркой</desc>
+  <rect width="720" height="2600" fill="#FAFAFA"/>
+
+  <!-- ==================== SECTION LABELS ==================== -->
+  <text x="8" y="80"  font-family="sans-serif" font-size="9" fill="#BBBBBB" transform="rotate(-90,8,80)"  text-anchor="end">Header</text>
+  <text x="8" y="320" font-family="sans-serif" font-size="9" fill="#BBBBBB" transform="rotate(-90,8,320)" text-anchor="end">Hero</text>
+  <text x="8" y="650" font-family="sans-serif" font-size="9" fill="#BBBBBB" transform="rotate(-90,8,650)" text-anchor="end">Features</text>
+  <text x="8" y="900" font-family="sans-serif" font-size="9" fill="#BBBBBB" transform="rotate(-90,8,900)" text-anchor="end">Benefits</text>
+  <text x="8" y="1120" font-family="sans-serif" font-size="9" fill="#BBBBBB" transform="rotate(-90,8,1120)" text-anchor="end">Reviews</text>
+  <text x="8" y="1340" font-family="sans-serif" font-size="9" fill="#BBBBBB" transform="rotate(-90,8,1340)" text-anchor="end">Auth Form</text>
+  <text x="8" y="1520" font-family="sans-serif" font-size="9" fill="#BBBBBB" transform="rotate(-90,8,1520)" text-anchor="end">CTA</text>
+  <text x="8" y="1650" font-family="sans-serif" font-size="9" fill="#BBBBBB" transform="rotate(-90,8,1650)" text-anchor="end">Footer</text>
+  <text x="8" y="1820" font-family="sans-serif" font-size="9" fill="#BBBBBB" transform="rotate(-90,8,1820)" text-anchor="end">Auth Modal</text>
+  <text x="8" y="2100" font-family="sans-serif" font-size="9" fill="#BBBBBB" transform="rotate(-90,8,2100)" text-anchor="end">Dashboard</text>
+
+  <!-- ==================== HEADER ==================== -->
+  <rect x="20" y="20" width="680" height="60" rx="3" fill="white" stroke="#CCCCCC" stroke-width="0.5"/>
+  <!-- Logo -->
+  <rect x="34" y="32" width="32" height="32" rx="5" fill="#EEEEEE" stroke="#CCCCCC" stroke-width="0.5"/>
+  <text x="50" y="52" text-anchor="middle" dominant-baseline="central" font-family="sans-serif" font-size="11" fill="#888">L</text>
+  <rect x="72" y="44" width="80" height="10" rx="2" fill="#DDDDDD"/>
+  <!-- Nav -->
+  <rect x="240" y="44" width="52" height="10" rx="2" fill="#DDDDDD"/>
+  <rect x="302" y="44" width="62" height="10" rx="2" fill="#DDDDDD"/>
+  <rect x="374" y="44" width="44" height="10" rx="2" fill="#DDDDDD"/>
+  <rect x="428" y="44" width="52" height="10" rx="2" fill="#DDDDDD"/>
+  <!-- Auth buttons -->
+  <rect x="502" y="34" width="72" height="28" rx="4" fill="#EEEEEE" stroke="#CCCCCC" stroke-width="0.5"/>
+  <text x="538" y="50" text-anchor="middle" dominant-baseline="central" font-family="sans-serif" font-size="9" fill="#888">[ Войти ]</text>
+  <rect x="582" y="34" width="104" height="28" rx="4" fill="#DDDDDD" stroke="#CCCCCC" stroke-width="0.5"/>
+  <text x="634" y="50" text-anchor="middle" dominant-baseline="central" font-family="sans-serif" font-size="9" fill="#888">[ Нач. бесплатно ]</text>
+
+  <!-- ==================== HERO ==================== -->
+  <rect x="20" y="90" width="680" height="310" rx="3" fill="#F5F5F5" stroke="#CCCCCC" stroke-width="0.5" stroke-dasharray="5 3"/>
+  <text x="36" y="108" font-family="sans-serif" font-size="9" fill="#AAAAAA">Hero-блок</text>
+  <!-- Tag -->
+  <rect x="36" y="114" width="88" height="16" rx="8" fill="#DDDDDD"/>
+  <!-- H1 -->
+  <rect x="36" y="138" width="280" height="22" rx="2" fill="#CCCCCC" opacity=".7"/>
+  <rect x="36" y="166" width="240" height="22" rx="2" fill="#CCCCCC" opacity=".5"/>
+  <!-- Sub -->
+  <rect x="36" y="200" width="260" height="10" rx="2" fill="#DDDDDD" opacity=".8"/>
+  <rect x="36" y="216" width="240" height="10" rx="2" fill="#DDDDDD" opacity=".6"/>
+  <!-- CTA -->
+  <rect x="36" y="238" width="152" height="36" rx="6" fill="#CCCCCC"/>
+  <text x="112" y="258" text-anchor="middle" dominant-baseline="central" font-family="sans-serif" font-size="10" fill="#888">[ Начать бесплатно ]</text>
+  <rect x="198" y="238" width="120" height="36" rx="6" fill="none" stroke="#CCCCCC" stroke-width="1"/>
+  <text x="258" y="258" text-anchor="middle" dominant-baseline="central" font-family="sans-serif" font-size="10" fill="#888">[ Подробнее ]</text>
+  <!-- Stats -->
+  <rect x="36" y="288" width="80" height="30" rx="3" fill="#EEEEEE"/>
+  <rect x="126" y="288" width="80" height="30" rx="3" fill="#EEEEEE"/>
+  <rect x="216" y="288" width="80" height="30" rx="3" fill="#EEEEEE"/>
+  <text x="76"  y="307" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#999">12k+</text>
+  <text x="166" y="307" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#999">4.8★</text>
+  <text x="256" y="307" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#999">95%</text>
+  <!-- Phone mockup -->
+  <rect x="430" y="100" width="250" height="290" rx="20" fill="none" stroke="#CCCCCC" stroke-width="1.5"/>
+  <rect x="442" y="112" width="226" height="266" rx="13" fill="#EEEEEE"/>
+  <rect x="454" y="124" width="90" height="8" rx="2" fill="#CCCCCC"/>
+  <rect x="454" y="138" width="130" height="11" rx="2" fill="#CCCCCC" opacity=".7"/>
+  <rect x="454" y="156" width="202" height="44" rx="6" fill="#CCCCCC" opacity=".5"/>
+  <rect x="454" y="208" width="70" height="8" rx="2" fill="#CCCCCC"/>
+  <rect x="454" y="222" width="202" height="22" rx="4" fill="#CCCCCC" opacity=".3"/>
+  <rect x="454" y="250" width="202" height="22" rx="4" fill="#CCCCCC" opacity=".3"/>
+  <rect x="454" y="278" width="202" height="22" rx="4" fill="#CCCCCC" opacity=".3"/>
+  <rect x="454" y="306" width="202" height="22" rx="4" fill="#CCCCCC" opacity=".3"/>
+  <text x="555" y="380" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#AAAAAA">мокап приложения</text>
+
+  <!-- ==================== FEATURES ==================== -->
+  <rect x="20" y="414" width="680" height="330" rx="3" fill="white" stroke="#CCCCCC" stroke-width="0.5"/>
+  <text x="36" y="430" font-family="sans-serif" font-size="9" fill="#AAAAAA">Функции (5 карточек)</text>
+  <rect x="240" y="434" width="80" height="14" rx="7" fill="#DDDDDD"/>
+  <rect x="170" y="454" width="220" height="18" rx="2" fill="#CCCCCC" opacity=".5"/>
+  <rect x="200" y="478" width="160" height="10" rx="2" fill="#DDDDDD" opacity=".5"/>
+  <!-- 3 cards row 1 -->
+  <rect x="36"  y="500" width="196" height="104" rx="7" fill="white" stroke="#CCCCCC" stroke-width="0.5"/>
+  <rect x="46"  y="510" width="32" height="32" rx="7" fill="#EEEEEE"/>
+  <rect x="46"  y="550" width="110" height="8" rx="2" fill="#CCCCCC"/>
+  <rect x="46"  y="564" width="176" height="7" rx="2" fill="#EEEEEE"/>
+  <rect x="46"  y="575" width="156" height="7" rx="2" fill="#EEEEEE"/>
+  <rect x="46"  y="590" width="60" height="6" rx="2" fill="#DDDDDD"/>
+
+  <rect x="252" y="500" width="196" height="104" rx="7" fill="white" stroke="#CCCCCC" stroke-width="0.5"/>
+  <rect x="262" y="510" width="32" height="32" rx="7" fill="#EEEEEE"/>
+  <rect x="262" y="550" width="110" height="8" rx="2" fill="#CCCCCC"/>
+  <rect x="262" y="564" width="176" height="7" rx="2" fill="#EEEEEE"/>
+  <rect x="262" y="575" width="156" height="7" rx="2" fill="#EEEEEE"/>
+  <rect x="262" y="590" width="60" height="6" rx="2" fill="#DDDDDD"/>
+
+  <rect x="468" y="500" width="196" height="104" rx="7" fill="white" stroke="#CCCCCC" stroke-width="0.5"/>
+  <rect x="478" y="510" width="32" height="32" rx="7" fill="#EEEEEE"/>
+  <rect x="478" y="550" width="110" height="8" rx="2" fill="#CCCCCC"/>
+  <rect x="478" y="564" width="176" height="7" rx="2" fill="#EEEEEE"/>
+  <rect x="478" y="575" width="156" height="7" rx="2" fill="#EEEEEE"/>
+  <rect x="478" y="590" width="60" height="6" rx="2" fill="#DDDDDD"/>
+
+  <!-- 2 cards row 2 -->
+  <rect x="144" y="618" width="196" height="104" rx="7" fill="white" stroke="#CCCCCC" stroke-width="0.5"/>
+  <rect x="154" y="628" width="32" height="32" rx="7" fill="#EEEEEE"/>
+  <rect x="154" y="668" width="110" height="8" rx="2" fill="#CCCCCC"/>
+  <rect x="154" y="682" width="176" height="7" rx="2" fill="#EEEEEE"/>
+  <rect x="154" y="696" width="60" height="6" rx="2" fill="#DDDDDD"/>
+
+  <rect x="360" y="618" width="196" height="104" rx="7" fill="white" stroke="#CCCCCC" stroke-width="0.5"/>
+  <rect x="370" y="628" width="32" height="32" rx="7" fill="#EEEEEE"/>
+  <rect x="370" y="668" width="110" height="8" rx="2" fill="#CCCCCC"/>
+  <rect x="370" y="682" width="176" height="7" rx="2" fill="#EEEEEE"/>
+  <rect x="370" y="696" width="60" height="6" rx="2" fill="#DDDDDD"/>
+
+  <!-- ==================== BENEFITS ==================== -->
+  <rect x="20" y="756" width="680" height="230" rx="3" fill="#F5F5F5" stroke="#CCCCCC" stroke-width="0.5" stroke-dasharray="5 3"/>
+  <text x="36" y="772" font-family="sans-serif" font-size="9" fill="#AAAAAA">Преимущества</text>
+  <rect x="240" y="776" width="80" height="14" rx="7" fill="#DDDDDD"/>
+  <rect x="180" y="798" width="200" height="16" rx="2" fill="#CCCCCC" opacity=".5"/>
+  <rect x="36"  y="826" width="150" height="130" rx="8" fill="white" stroke="#CCCCCC" stroke-width="0.5"/>
+  <rect x="91"  y="838" width="40" height="40" rx="20" fill="#EEEEEE"/>
+  <rect x="66"  y="888" width="90" height="8" rx="2" fill="#CCCCCC"/>
+  <rect x="56"  y="902" width="114" height="7" rx="2" fill="#EEEEEE"/>
+  <rect x="56"  y="914" width="100" height="7" rx="2" fill="#EEEEEE"/>
+
+  <rect x="198" y="826" width="150" height="130" rx="8" fill="white" stroke="#CCCCCC" stroke-width="0.5"/>
+  <rect x="253" y="838" width="40" height="40" rx="20" fill="#EEEEEE"/>
+  <rect x="228" y="888" width="90" height="8" rx="2" fill="#CCCCCC"/>
+  <rect x="218" y="902" width="114" height="7" rx="2" fill="#EEEEEE"/>
+
+  <rect x="360" y="826" width="150" height="130" rx="8" fill="white" stroke="#CCCCCC" stroke-width="0.5"/>
+  <rect x="415" y="838" width="40" height="40" rx="20" fill="#EEEEEE"/>
+  <rect x="390" y="888" width="90" height="8" rx="2" fill="#CCCCCC"/>
+  <rect x="380" y="902" width="114" height="7" rx="2" fill="#EEEEEE"/>
+
+  <rect x="522" y="826" width="150" height="130" rx="8" fill="white" stroke="#CCCCCC" stroke-width="0.5"/>
+  <rect x="577" y="838" width="40" height="40" rx="20" fill="#EEEEEE"/>
+  <rect x="552" y="888" width="90" height="8" rx="2" fill="#CCCCCC"/>
+  <rect x="542" y="902" width="114" height="7" rx="2" fill="#EEEEEE"/>
+
+  <!-- ==================== REVIEWS ==================== -->
+  <rect x="20" y="998" width="680" height="256" rx="3" fill="white" stroke="#CCCCCC" stroke-width="0.5"/>
+  <text x="36" y="1014" font-family="sans-serif" font-size="9" fill="#AAAAAA">Отзывы</text>
+  <rect x="244" y="1018" width="72" height="14" rx="7" fill="#DDDDDD"/>
+  <rect x="180" y="1038" width="200" height="14" rx="2" fill="#CCCCCC" opacity=".5"/>
+
+  <rect x="36"  y="1062" width="198" height="172" rx="7" fill="white" stroke="#CCCCCC" stroke-width="0.5"/>
+  <rect x="50"  y="1076" width="80" height="8" rx="2" fill="#CCCCCC"/>
+  <rect x="50"  y="1092" width="174" height="7" rx="2" fill="#EEEEEE"/>
+  <rect x="50"  y="1104" width="174" height="7" rx="2" fill="#EEEEEE"/>
+  <rect x="50"  y="1116" width="150" height="7" rx="2" fill="#EEEEEE"/>
+  <circle cx="64" cy="1174" r="16" fill="#EEEEEE"/>
+  <rect x="86"  y="1164" width="80" height="8" rx="2" fill="#CCCCCC"/>
+  <rect x="86"  y="1178" width="60" height="6" rx="2" fill="#EEEEEE"/>
+  <rect x="50"  y="1200" width="110" height="14" rx="5" fill="#EEEEEE"/>
+
+  <rect x="254" y="1062" width="198" height="172" rx="7" fill="white" stroke="#CCCCCC" stroke-width="0.5"/>
+  <rect x="268" y="1076" width="80" height="8" rx="2" fill="#CCCCCC"/>
+  <rect x="268" y="1092" width="174" height="7" rx="2" fill="#EEEEEE"/>
+  <rect x="268" y="1104" width="174" height="7" rx="2" fill="#EEEEEE"/>
+  <rect x="268" y="1116" width="150" height="7" rx="2" fill="#EEEEEE"/>
+  <circle cx="282" cy="1174" r="16" fill="#EEEEEE"/>
+  <rect x="304" y="1164" width="80" height="8" rx="2" fill="#CCCCCC"/>
+  <rect x="304" y="1178" width="60" height="6" rx="2" fill="#EEEEEE"/>
+  <rect x="268" y="1200" width="110" height="14" rx="5" fill="#EEEEEE"/>
+
+  <rect x="472" y="1062" width="198" height="172" rx="7" fill="white" stroke="#CCCCCC" stroke-width="0.5"/>
+  <rect x="486" y="1076" width="80" height="8" rx="2" fill="#CCCCCC"/>
+  <rect x="486" y="1092" width="174" height="7" rx="2" fill="#EEEEEE"/>
+  <rect x="486" y="1104" width="174" height="7" rx="2" fill="#EEEEEE"/>
+  <rect x="486" y="1116" width="150" height="7" rx="2" fill="#EEEEEE"/>
+  <circle cx="500" cy="1174" r="16" fill="#EEEEEE"/>
+  <rect x="522" y="1164" width="80" height="8" rx="2" fill="#CCCCCC"/>
+  <rect x="522" y="1178" width="60" height="6" rx="2" fill="#EEEEEE"/>
+  <rect x="486" y="1200" width="110" height="14" rx="5" fill="#EEEEEE"/>
+
+  <!-- ==================== AUTH FORM ==================== -->
+  <rect x="20" y="1264" width="680" height="260" rx="3" fill="#F5F5F5" stroke="#CCCCCC" stroke-width="0.5" stroke-dasharray="5 3"/>
+  <text x="36" y="1280" font-family="sans-serif" font-size="9" fill="#AAAAAA">Секция регистрации / входа</text>
+  <rect x="246" y="1284" width="76" height="14" rx="7" fill="#DDDDDD"/>
+  <rect x="180" y="1304" width="200" height="16" rx="2" fill="#CCCCCC" opacity=".5"/>
+  <rect x="230" y="1326" width="200" height="10" rx="2" fill="#DDDDDD" opacity=".5"/>
+  <!-- Form card -->
+  <rect x="210" y="1346" width="300" height="160" rx="10" fill="white" stroke="#CCCCCC" stroke-width="0.5"/>
+  <!-- Tabs -->
+  <rect x="220" y="1354" width="136" height="26" rx="5" fill="#EEEEEE"/>
+  <rect x="222" y="1356" width="64" height="22" rx="4" fill="white" stroke="#CCCCCC" stroke-width="0.5"/>
+  <text x="254" y="1367" text-anchor="middle" dominant-baseline="central" font-family="sans-serif" font-size="8" fill="#666">Регистрация</text>
+  <text x="306" y="1367" text-anchor="middle" dominant-baseline="central" font-family="sans-serif" font-size="8" fill="#AAA">Войти</text>
+  <!-- Fields -->
+  <rect x="220" y="1390" width="280" height="24" rx="4" fill="white" stroke="#CCCCCC" stroke-width="0.5"/>
+  <text x="230" y="1404" dominant-baseline="central" font-family="sans-serif" font-size="9" fill="#BBBBBB">Ваше имя</text>
+  <rect x="220" y="1420" width="280" height="24" rx="4" fill="white" stroke="#CCCCCC" stroke-width="0.5"/>
+  <text x="230" y="1434" dominant-baseline="central" font-family="sans-serif" font-size="9" fill="#BBBBBB">Email</text>
+  <rect x="220" y="1450" width="280" height="24" rx="4" fill="white" stroke="#CCCCCC" stroke-width="0.5"/>
+  <text x="230" y="1464" dominant-baseline="central" font-family="sans-serif" font-size="9" fill="#BBBBBB">Пароль</text>
+  <!-- Submit -->
+  <rect x="220" y="1482" width="280" height="16" rx="4" fill="#CCCCCC"/>
+  <text x="360" y="1490" text-anchor="middle" dominant-baseline="central" font-family="sans-serif" font-size="9" fill="#888">[ Создать аккаунт ]</text>
+
+  <!-- ==================== FINAL CTA ==================== -->
+  <rect x="20" y="1534" width="680" height="150" rx="3" fill="#DDDDDD" stroke="#CCCCCC" stroke-width="0.5" stroke-dasharray="5 3"/>
+  <text x="36" y="1550" font-family="sans-serif" font-size="9" fill="#AAAAAA">Финальный CTA</text>
+  <rect x="210" y="1560" width="260" height="20" rx="2" fill="#CCCCCC" opacity=".6"/>
+  <rect x="240" y="1588" width="200" height="12" rx="2" fill="#CCCCCC" opacity=".4"/>
+  <rect x="250" y="1614" width="220" height="36" rx="6" fill="#CCCCCC"/>
+  <text x="360" y="1634" text-anchor="middle" dominant-baseline="central" font-family="sans-serif" font-size="9" fill="#888">[ Начать бесплатно ]</text>
+
+  <!-- ==================== FOOTER ==================== -->
+  <rect x="20" y="1694" width="680" height="80" rx="3" fill="#EEEEEE" stroke="#CCCCCC" stroke-width="0.5"/>
+  <rect x="36"  y="1712" width="100" height="12" rx="2" fill="#CCCCCC"/>
+  <rect x="280" y="1714" width="52" height="8" rx="2" fill="#DDDDDD"/>
+  <rect x="342" y="1714" width="52" height="8" rx="2" fill="#DDDDDD"/>
+  <rect x="404" y="1714" width="52" height="8" rx="2" fill="#DDDDDD"/>
+  <rect x="36"  y="1730" width="420" height="7" rx="2" fill="#DDDDDD"/>
+  <rect x="36"  y="1742" width="380" height="7" rx="2" fill="#DDDDDD"/>
+  <rect x="520" y="1730" width="160" height="8" rx="2" fill="#CCCCCC"/>
+
+  <!-- ==================== AUTH MODAL ==================== -->
+  <rect x="20" y="1790" width="680" height="290" rx="3" fill="#F0F0F0" stroke="#CCCCCC" stroke-width="0.5"/>
+  <text x="36" y="1806" font-family="sans-serif" font-size="9" fill="#AAAAAA">Модальное окно входа / регистрации</text>
+  <!-- overlay bg -->
+  <rect x="36" y="1812" width="648" height="256" rx="6" fill="#DDDDDD" opacity=".5"/>
+  <!-- modal card -->
+  <rect x="210" y="1820" width="300" height="240" rx="12" fill="white" stroke="#BBBBBB" stroke-width="0.5"/>
+  <!-- close btn -->
+  <rect x="490" y="1828" width="16" height="16" rx="8" fill="#EEEEEE"/>
+  <!-- tabs -->
+  <rect x="222" y="1834" width="136" height="24" rx="5" fill="#EEEEEE"/>
+  <rect x="224" y="1836" width="64" height="20" rx="4" fill="white" stroke="#CCCCCC" stroke-width="0.5"/>
+  <text x="256" y="1847" text-anchor="middle" dominant-baseline="central" font-family="sans-serif" font-size="8" fill="#666">Регистрация</text>
+  <text x="306" y="1847" text-anchor="middle" dominant-baseline="central" font-family="sans-serif" font-size="8" fill="#AAA">Войти</text>
+  <!-- fields -->
+  <rect x="222" y="1868" width="276" height="22" rx="4" fill="white" stroke="#CCCCCC" stroke-width="0.5"/>
+  <text x="232" y="1880" dominant-baseline="central" font-family="sans-serif" font-size="8" fill="#CCC">Имя</text>
+  <rect x="222" y="1896" width="276" height="22" rx="4" fill="white" stroke="#CCCCCC" stroke-width="0.5"/>
+  <text x="232" y="1908" dominant-baseline="central" font-family="sans-serif" font-size="8" fill="#CCC">Email</text>
+  <rect x="222" y="1924" width="276" height="22" rx="4" fill="white" stroke="#CCCCCC" stroke-width="0.5"/>
+  <text x="232" y="1936" dominant-baseline="central" font-family="sans-serif" font-size="8" fill="#CCC">Пароль (мин. 6 символов)</text>
+  <!-- submit -->
+  <rect x="222" y="1954" width="276" height="24" rx="4" fill="#CCCCCC"/>
+  <text x="360" y="1966" text-anchor="middle" dominant-baseline="central" font-family="sans-serif" font-size="9" fill="#888">[ Создать аккаунт → ]</text>
+  <!-- link -->
+  <rect x="272" y="1988" width="174" height="8" rx="2" fill="#EEEEEE"/>
+  <!-- success state hint -->
+  <rect x="222" y="2012" width="276" height="40" rx="6" fill="#F5F5F5" stroke="#DDDDDD" stroke-width="0.5"/>
+  <text x="360" y="2032" text-anchor="middle" dominant-baseline="central" font-family="sans-serif" font-size="9" fill="#AAAAAA">success-state (после регистрации)</text>
+
+  <!-- ==================== DASHBOARD HEADER ==================== -->
+  <rect x="20" y="2096" width="680" height="60" rx="3" fill="white" stroke="#CCCCCC" stroke-width="0.5"/>
+  <text x="36" y="2112" font-family="sans-serif" font-size="9" fill="#AAAAAA">Dashboard — Header</text>
+  <rect x="36" y="2118" width="32" height="32" rx="5" fill="#EEEEEE" stroke="#CCCCCC" stroke-width="0.5"/>
+  <rect x="74" y="2122" width="80" height="10" rx="2" fill="#DDDDDD"/>
+  <rect x="74" y="2136" width="120" height="8" rx="2" fill="#EEEEEE"/>
+  <rect x="504" y="2122" width="98" height="26" rx="4" fill="#EEEEEE" stroke="#CCCCCC" stroke-width="0.5"/>
+  <text x="553" y="2136" text-anchor="middle" dominant-baseline="central" font-family="sans-serif" font-size="8" fill="#888">← На главную</text>
+  <rect x="608" y="2122" width="78" height="26" rx="4" fill="#DDDDDD" stroke="#CCCCCC" stroke-width="0.5"/>
+  <text x="647" y="2136" text-anchor="middle" dominant-baseline="central" font-family="sans-serif" font-size="8" fill="#888">Выйти</text>
+
+  <!-- ==================== DASHBOARD STATS ==================== -->
+  <rect x="20" y="2166" width="680" height="80" rx="3" fill="#F5F5F5" stroke="#CCCCCC" stroke-width="0.5"/>
+  <text x="36" y="2182" font-family="sans-serif" font-size="9" fill="#AAAAAA">Статистика (4 карточки)</text>
+  <rect x="36"  y="2188" width="154" height="50" rx="6" fill="white" stroke="#CCCCCC" stroke-width="0.5"/>
+  <rect x="50"  y="2196" width="24" height="12" rx="2" fill="#EEEEEE"/>
+  <rect x="50"  y="2212" width="60" height="16" rx="2" fill="#CCCCCC"/>
+  <rect x="50"  y="2232" width="80" height="8" rx="2" fill="#EEEEEE"/>
+  <rect x="208" y="2188" width="154" height="50" rx="6" fill="white" stroke="#CCCCCC" stroke-width="0.5"/>
+  <rect x="222" y="2196" width="24" height="12" rx="2" fill="#EEEEEE"/>
+  <rect x="222" y="2212" width="60" height="16" rx="2" fill="#CCCCCC"/>
+  <rect x="222" y="2232" width="80" height="8" rx="2" fill="#EEEEEE"/>
+  <rect x="380" y="2188" width="154" height="50" rx="6" fill="white" stroke="#CCCCCC" stroke-width="0.5"/>
+  <rect x="394" y="2196" width="24" height="12" rx="2" fill="#EEEEEE"/>
+  <rect x="394" y="2212" width="60" height="16" rx="2" fill="#CCCCCC"/>
+  <rect x="394" y="2232" width="80" height="8" rx="2" fill="#EEEEEE"/>
+  <rect x="552" y="2188" width="134" height="50" rx="6" fill="white" stroke="#CCCCCC" stroke-width="0.5"/>
+  <rect x="566" y="2196" width="24" height="12" rx="2" fill="#EEEEEE"/>
+  <rect x="566" y="2212" width="60" height="16" rx="2" fill="#CCCCCC"/>
+  <rect x="566" y="2232" width="80" height="8" rx="2" fill="#EEEEEE"/>
+
+  <!-- ==================== DASHBOARD MAIN COLS ==================== -->
+  <!-- Left: Tasks -->
+  <rect x="20" y="2256" width="326" height="310" rx="3" fill="white" stroke="#CCCCCC" stroke-width="0.5"/>
+  <text x="36" y="2272" font-family="sans-serif" font-size="9" fill="#AAAAAA">Задачи</text>
+  <!-- Input row -->
+  <rect x="36" y="2276" width="228" height="26" rx="4" fill="white" stroke="#CCCCCC" stroke-width="0.5"/>
+  <text x="46" y="2290" dominant-baseline="central" font-family="sans-serif" font-size="9" fill="#BBBBBB">Новая задача...</text>
+  <rect x="272" y="2276" width="58" height="26" rx="4" fill="#CCCCCC"/>
+  <text x="301" y="2290" text-anchor="middle" dominant-baseline="central" font-family="sans-serif" font-size="9" fill="#888">+ Добав.</text>
+  <!-- Subject tags -->
+  <text x="36" y="2316" font-family="sans-serif" font-size="8" fill="#AAAAAA">теги предметов:</text>
+  <rect x="36"  y="2322" width="54" height="18" rx="9" fill="#EEEEEE" stroke="#CCCCCC" stroke-width="0.5"/>
+  <text x="63"  y="2332" text-anchor="middle" dominant-baseline="central" font-family="sans-serif" font-size="7" fill="#999">Без пред.</text>
+  <rect x="98"  y="2322" width="64" height="18" rx="9" fill="#CCCCCC"/>
+  <rect x="170" y="2322" width="54" height="18" rx="9" fill="#EEEEEE" stroke="#CCCCCC" stroke-width="0.5"/>
+  <rect x="232" y="2322" width="62" height="18" rx="9" fill="#EEEEEE" stroke="#CCCCCC" stroke-width="0.5"/>
+  <!-- Tasks -->
+  <rect x="36" y="2350" width="294" height="26" rx="5" fill="#F5F5F5"/>
+  <circle cx="50" cy="2363" r="7" fill="none" stroke="#CCCCCC" stroke-width="1"/>
+  <rect x="64" y="2357" width="140" height="8" rx="2" fill="#CCCCCC"/>
+  <rect x="210" y="2357" width="54" height="8" rx="9" fill="#DDDDDD"/>
+  <rect x="274" y="2357" width="16" height="8" rx="2" fill="#EEEEEE"/>
+
+  <rect x="36" y="2382" width="294" height="26" rx="5" fill="#F5F5F5"/>
+  <circle cx="50" cy="2395" r="7" fill="#CCCCCC"/>
+  <rect x="64" y="2389" width="120" height="8" rx="2" fill="#CCCCCC" opacity=".5"/>
+  <rect x="36" y="2414" width="294" height="26" rx="5" fill="#F5F5F5"/>
+  <circle cx="50" cy="2427" r="7" fill="none" stroke="#CCCCCC" stroke-width="1"/>
+  <rect x="64" y="2421" width="160" height="8" rx="2" fill="#CCCCCC"/>
+  <rect x="230" y="2421" width="44" height="8" rx="9" fill="#DDDDDD"/>
+  <rect x="36" y="2446" width="294" height="26" rx="5" fill="#F5F5F5"/>
+  <circle cx="50" cy="2459" r="7" fill="none" stroke="#CCCCCC" stroke-width="1"/>
+  <rect x="64" y="2453" width="110" height="8" rx="2" fill="#CCCCCC"/>
+
+  <!-- Right: 3 cards stacked -->
+  <!-- Subjects -->
+  <rect x="362" y="2256" width="338" height="170" rx="3" fill="white" stroke="#CCCCCC" stroke-width="0.5"/>
+  <text x="378" y="2272" font-family="sans-serif" font-size="9" fill="#AAAAAA">Предметы</text>
+  <rect x="378" y="2278" width="202" height="24" rx="4" fill="white" stroke="#CCCCCC" stroke-width="0.5"/>
+  <text x="390" y="2291" dominant-baseline="central" font-family="sans-serif" font-size="9" fill="#BBBBBB">Название предмета...</text>
+  <rect x="586" y="2278" width="98" height="24" rx="4" fill="#CCCCCC"/>
+  <text x="635" y="2291" text-anchor="middle" dominant-baseline="central" font-family="sans-serif" font-size="8" fill="#888">+ Добавить</text>
+  <!-- Color picker -->
+  <text x="378" y="2316" font-family="sans-serif" font-size="8" fill="#AAAAAA">цвет:</text>
+  <circle cx="410" cy="2313" r="8" fill="#CCCCCC" stroke="#888" stroke-width="1.5"/>
+  <circle cx="428" cy="2313" r="8" fill="#CCCCCC"/>
+  <circle cx="446" cy="2313" r="8" fill="#CCCCCC"/>
+  <circle cx="464" cy="2313" r="8" fill="#CCCCCC"/>
+  <circle cx="482" cy="2313" r="8" fill="#CCCCCC"/>
+  <circle cx="500" cy="2313" r="8" fill="#CCCCCC"/>
+  <!-- Subject list items -->
+  <rect x="378" y="2330" width="310" height="24" rx="5" fill="#F5F5F5"/>
+  <circle cx="390" cy="2342" r="5" fill="#CCCCCC"/>
+  <rect x="402" y="2337" width="100" height="8" rx="2" fill="#CCCCCC"/>
+  <rect x="664" y="2337" width="14" height="8" rx="2" fill="#EEEEEE"/>
+  <rect x="378" y="2360" width="310" height="24" rx="5" fill="#F5F5F5"/>
+  <circle cx="390" cy="2372" r="5" fill="#CCCCCC"/>
+  <rect x="402" y="2367" width="80" height="8" rx="2" fill="#CCCCCC"/>
+  <rect x="664" y="2367" width="14" height="8" rx="2" fill="#EEEEEE"/>
+  <rect x="378" y="2390" width="310" height="24" rx="5" fill="#F5F5F5"/>
+  <circle cx="390" cy="2402" r="5" fill="#CCCCCC"/>
+  <rect x="402" y="2397" width="120" height="8" rx="2" fill="#CCCCCC"/>
+  <rect x="664" y="2397" width="14" height="8" rx="2" fill="#EEEEEE"/>
+
+  <!-- Progress -->
+  <rect x="362" y="2436" width="338" height="130" rx="3" fill="white" stroke="#CCCCCC" stroke-width="0.5"/>
+  <text x="378" y="2452" font-family="sans-serif" font-size="9" fill="#AAAAAA">Прогресс по предметам</text>
+  <circle cx="390" cy="2474" r="4" fill="#CCCCCC"/>
+  <rect x="400" y="2470" width="80" height="7" rx="2" fill="#CCCCCC"/>
+  <rect x="400" y="2480" width="248" height="7" rx="4" fill="#EEEEEE"/>
+  <rect x="400" y="2480" width="180" height="7" rx="4" fill="#CCCCCC"/>
+  <circle cx="390" cy="2500" r="4" fill="#CCCCCC"/>
+  <rect x="400" y="2496" width="70" height="7" rx="2" fill="#CCCCCC"/>
+  <rect x="400" y="2506" width="248" height="7" rx="4" fill="#EEEEEE"/>
+  <rect x="400" y="2506" width="120" height="7" rx="4" fill="#CCCCCC"/>
+  <circle cx="390" cy="2526" r="4" fill="#CCCCCC"/>
+  <rect x="400" y="2522" width="90" height="7" rx="2" fill="#CCCCCC"/>
+  <rect x="400" y="2532" width="248" height="7" rx="4" fill="#EEEEEE"/>
+  <rect x="400" y="2532" width="200" height="7" rx="4" fill="#CCCCCC"/>
+
+  <!-- ==================== LEGEND ==================== -->
+  <rect x="20" y="2574" width="680" height="18" rx="3" fill="white" stroke="#CCCCCC" stroke-width="0.5"/>
+  <rect x="36"  y="2580" width="18" height="10" rx="2" fill="white" stroke="#CCCCCC" stroke-width="0.5"/>
+  <text x="60" y="2589" dominant-baseline="central" font-family="sans-serif" font-size="9" fill="#666">Блок контента</text>
+  <rect x="160" y="2580" width="18" height="10" rx="2" fill="#F5F5F5" stroke="#CCCCCC" stroke-width="0.5" stroke-dasharray="4 2"/>
+  <text x="184" y="2589" dominant-baseline="central" font-family="sans-serif" font-size="9" fill="#666">Секция страницы</text>
+  <rect x="310" y="2580" width="18" height="10" rx="2" fill="#CCCCCC"/>
+  <text x="334" y="2589" dominant-baseline="central" font-family="sans-serif" font-size="9" fill="#666">CTA / активный элемент</text>
+  <circle cx="510" cy="2585" r="5" fill="#EEEEEE" stroke="#888" stroke-width="1.5"/>
+  <text x="522" y="2589" dominant-baseline="central" font-family="sans-serif" font-size="9" fill="#666">Выбранный цвет предмета</text>
+</svg>
