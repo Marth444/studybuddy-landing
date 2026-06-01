@@ -2,7 +2,7 @@
 
 > Интерактивная адаптивная посадочная страница мобильного приложения для планирования учёбы
 
-🌐 **[Открыть сайт](https://ВАШ_НИК.github.io/studybuddy-landing)**
+🌐 **[Открыть сайт](https://Marth444.github.io/studybuddy-landing)**
 
 ---
 
@@ -60,7 +60,7 @@ git clone https://github.com/ВАШ_НИК/studybuddy-landing.git
 open index.html
 ```
 
-Или перейдите по ссылке деплоя: **[ВАШ_НИК.github.io/studybuddy-landing](https://ВАШ_НИК.github.io/studybuddy-landing)**
+Или перейдите по ссылке деплоя: **[Marth444.github.io/studybuddy-landing](https://Marth444.github.io/studybuddy-landing)**
 
 ---
 
