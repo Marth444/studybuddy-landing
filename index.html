@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StudyBuddy — Планируй учёбу легко</title>
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --primary: #4F46E5;
+      --primary-dark: #3730A3;
+      --primary-light: #EEF2FF;
+      --accent: #06B6D4;
+      --accent-light: #CFFAFE;
+      --dark: #111827;
+      --gray-700: #374151;
+      --gray-500: #6B7280;
+      --gray-300: #D1D5DB;
+      --gray-100: #F9FAFB;
+      --white: #FFFFFF;
+      --radius: 12px;
+      --shadow: 0 4px 24px rgba(79,70,229,0.10);
+      --shadow-hover: 0 8px 32px rgba(79,70,229,0.18);
+      --transition: 0.28s cubic-bezier(.4,0,.2,1);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Segoe UI', system-ui, sans-serif; color: var(--dark); background: var(--white); }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; }
+
+    /* ===== HEADER ===== */
+    header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(255,255,255,0.92); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--gray-300);
+      transition: box-shadow var(--transition);
+    }
+    header.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.08); }
+    .header-inner {
+      max-width: 1120px; margin: 0 auto; padding: 0 24px;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px;
+    }
+    .logo {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 1.25rem; font-weight: 700; color: var(--primary);
+    }
+    .logo-icon {
+      width: 36px; height: 36px; background: var(--primary); border-radius: 9px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .logo-icon svg { fill: white; width: 20px; height: 20px; }
+    nav { display: flex; gap: 32px; }
+    nav a { font-size: 0.95rem; color: var(--gray-700); font-weight: 500; transition: color var(--transition); }
+    nav a:hover { color: var(--primary); }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 22px; border-radius: 9px; font-size: 0.95rem;
+      font-weight: 600; cursor: pointer; border: none; transition: all var(--transition);
+    }
+    .btn-primary { background: var(--primary); color: white; }
+    .btn-primary:hover { background: var(--primary-dark); transform: translateY(-1px); box-shadow: var(--shadow-hover); }
+    .btn-outline { background: transparent; color: var(--primary); border: 2px solid var(--primary); }
+    .btn-outline:hover { background: var(--primary-light); }
+    .btn-lg { padding: 14px 32px; font-size: 1.05rem; border-radius: 11px; }
+    .burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 6px; }
+    .burger span { display: block; width: 24px; height: 2px; background: var(--dark); border-radius: 2px; transition: all var(--transition); }
+    .burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .burger.open span:nth-child(2) { opacity: 0; }
+    .burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-menu {
+      display: none; position: fixed; top: 64px; left: 0; right: 0;
+      background: white; border-bottom: 1px solid var(--gray-300); padding: 20px 24px;
+      flex-direction: column; gap: 16px; z-index: 99;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-size: 1rem; font-weight: 500; color: var(--gray-700); padding: 8px 0; border-bottom: 1px solid var(--gray-100); }
+
+    /* ===== SECTIONS ===== */
+    section { padding: 80px 24px; }
+    .container { max-width: 1120px; margin: 0 auto; }
+    .section-tag {
+      display: inline-block; background: var(--primary-light); color: var(--primary);
+      font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 4px 12px; border-radius: 999px; margin-bottom: 16px;
+    }
+    .section-title { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 800; line-height: 1.25; margin-bottom: 16px; }
+    .section-sub { font-size: 1.05rem; color: var(--gray-500); max-width: 560px; line-height: 1.7; }
+    .text-center { text-align: center; }
+    .text-center .section-sub { margin: 0 auto; }
+
+    /* ===== HERO ===== */
+    #hero {
+      min-height: 100vh; display: flex; align-items: center;
+      background: linear-gradient(135deg, #EEF2FF 0%, #CFFAFE 100%);
+      padding-top: 96px;
+    }
+    .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+    .hero-title { font-size: clamp(2rem, 4.5vw, 3.2rem); font-weight: 900; line-height: 1.15; margin-bottom: 20px; }
+    .hero-title span { color: var(--primary); }
+    .hero-sub { font-size: 1.15rem; color: var(--gray-700); line-height: 1.75; margin-bottom: 32px; }
+    .hero-cta { display: flex; gap: 16px; flex-wrap: wrap; }
+    .hero-stats { display: flex; gap: 32px; margin-top: 40px; }
+    .stat { }
+    .stat-num { font-size: 1.6rem; font-weight: 800; color: var(--primary); }
+    .stat-label { font-size: 0.85rem; color: var(--gray-500); }
+    .hero-visual {
+      display: flex; justify-content: center; align-items: center; position: relative;
+    }
+    .phone-mockup {
+      width: 280px; height: 520px; background: var(--dark); border-radius: 38px;
+      padding: 20px 16px; box-shadow: 0 32px 80px rgba(79,70,229,0.25);
+      position: relative; overflow: hidden;
+    }
+    .phone-screen { background: #1e1b4b; border-radius: 24px; height: 100%; padding: 20px 14px; overflow: hidden; }
+    .phone-header { color: #a5b4fc; font-size: 0.7rem; font-weight: 600; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.05em; }
+    .phone-greeting { color: white; font-size: 1rem; font-weight: 700; margin-bottom: 4px; }
+    .phone-date { color: #818cf8; font-size: 0.72rem; margin-bottom: 16px; }
+    .phone-progress-card {
+      background: linear-gradient(135deg,#4F46E5,#06B6D4); border-radius: 16px;
+      padding: 14px; margin-bottom: 12px;
+    }
+    .phone-progress-card p { color: white; font-size: 0.72rem; margin-bottom: 6px; }
+    .progress-bar { background: rgba(255,255,255,0.25); border-radius: 999px; height: 6px; }
+    .progress-fill { background: white; border-radius: 999px; height: 6px; width: 68%; }
+    .phone-tasks-title { color: #a5b4fc; font-size: 0.7rem; font-weight: 600; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.05em; }
+    .phone-task {
+      display: flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,0.07); border-radius: 10px;
+      padding: 8px 10px; margin-bottom: 8px;
+    }
+    .task-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+    .dot-green { background: #34D399; }
+    .dot-yellow { background: #FBBF24; }
+    .dot-red { background: #F87171; }
+    .phone-task p { color: white; font-size: 0.7rem; line-height: 1.3; }
+    .phone-task .task-time { color: #818cf8; font-size: 0.62rem; margin-top: 1px; }
+    .float-badge {
+      position: absolute; background: white; border-radius: 14px;
+      padding: 10px 14px; box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+      font-size: 0.78rem; font-weight: 600;
+    }
+    .badge-1 { top: 60px; right: -30px; color: var(--primary); }
+    .badge-2 { bottom: 80px; left: -30px; color: #059669; }
+
+    /* ===== FEATURES ===== */
+    #features { background: white; }
+    .features-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); gap: 24px; margin-top: 48px; }
+    .feature-card {
+      border: 1px solid var(--gray-300); border-radius: var(--radius); padding: 28px;
+      transition: all var(--transition); cursor: pointer; background: white;
+    }
+    .feature-card:hover { border-color: var(--primary); box-shadow: var(--shadow-hover); transform: translateY(-3px); }
+    .feature-icon {
+      width: 48px; height: 48px; border-radius: 12px; display: flex;
+      align-items: center; justify-content: center; font-size: 1.5rem;
+      margin-bottom: 16px;
+    }
+    .icon-purple { background: var(--primary-light); }
+    .icon-cyan { background: var(--accent-light); }
+    .icon-green { background: #D1FAE5; }
+    .icon-orange { background: #FEF3C7; }
+    .icon-pink { background: #FCE7F3; }
+    .feature-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; }
+    .feature-desc { font-size: 0.9rem; color: var(--gray-500); line-height: 1.65; margin-bottom: 14px; }
+    .feature-more-btn {
+      background: none; border: none; color: var(--primary); font-size: 0.875rem;
+      font-weight: 600; cursor: pointer; padding: 0; display: inline-flex; align-items: center; gap: 4px;
+      transition: gap var(--transition);
+    }
+    .feature-more-btn:hover { gap: 8px; }
+
+    /* ===== BENEFITS ===== */
+    #benefits { background: var(--gray-100); }
+    .benefits-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap: 20px; margin-top: 48px; }
+    .benefit-card {
+      background: white; border-radius: var(--radius); padding: 28px 24px;
+      text-align: center; box-shadow: var(--shadow); transition: all var(--transition);
+    }
+    .benefit-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
+    .benefit-emoji { font-size: 2.2rem; margin-bottom: 14px; display: block; }
+    .benefit-title { font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
+    .benefit-text { font-size: 0.88rem; color: var(--gray-500); line-height: 1.6; }
+
+    /* ===== REVIEWS ===== */
+    #reviews { background: white; }
+    .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); gap: 24px; margin-top: 48px; }
+    .review-card {
+      border: 1px solid var(--gray-300); border-radius: var(--radius); padding: 28px;
+      transition: all var(--transition);
+    }
+    .review-card:hover { border-color: var(--primary); box-shadow: var(--shadow); }
+    .review-stars { color: #FBBF24; font-size: 1rem; margin-bottom: 12px; letter-spacing: 2px; }
+    .review-text { font-size: 0.92rem; color: var(--gray-700); line-height: 1.7; margin-bottom: 20px; font-style: italic; }
+    .reviewer { display: flex; align-items: center; gap: 12px; }
+    .reviewer-avatar {
+      width: 40px; height: 40px; border-radius: 50%; display: flex;
+      align-items: center; justify-content: center; font-weight: 700; color: white; font-size: 1rem;
+    }
+    .reviewer-name { font-weight: 700; font-size: 0.9rem; }
+    .reviewer-role { font-size: 0.8rem; color: var(--gray-500); }
+
+    /* ===== REGISTER FORM ===== */
+    #register { background: linear-gradient(135deg, #4F46E5 0%, #06B6D4 100%); }
+    #register .section-title { color: white; }
+    #register .section-sub { color: rgba(255,255,255,0.8); }
+    .form-wrapper {
+      background: white; border-radius: 20px; padding: 40px 36px;
+      max-width: 480px; margin: 40px auto 0; box-shadow: 0 16px 64px rgba(0,0,0,0.2);
+    }
+    .form-group { margin-bottom: 20px; }
+    label { display: block; font-size: 0.875rem; font-weight: 600; margin-bottom: 6px; color: var(--gray-700); }
+    input[type="text"], input[type="email"] {
+      width: 100%; padding: 12px 16px; border: 1.5px solid var(--gray-300); border-radius: 9px;
+      font-size: 0.95rem; color: var(--dark); background: white; outline: none;
+      transition: border-color var(--transition), box-shadow var(--transition);
+    }
+    input:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(79,70,229,0.12); }
+    input.error { border-color: #EF4444; box-shadow: 0 0 0 3px rgba(239,68,68,0.10); }
+    .error-msg { display: none; color: #EF4444; font-size: 0.8rem; margin-top: 5px; font-weight: 500; }
+    .error-msg.visible { display: block; }
+    .form-btn { width: 100%; padding: 14px; background: var(--primary); color: white; border: none; border-radius: 9px; font-size: 1rem; font-weight: 700; cursor: pointer; transition: all var(--transition); }
+    .form-btn:hover { background: var(--primary-dark); transform: translateY(-1px); }
+    .success-msg {
+      display: none; text-align: center; padding: 32px 20px;
+    }
+    .success-msg.visible { display: block; }
+    .success-icon { font-size: 3rem; margin-bottom: 12px; }
+    .success-msg h3 { font-size: 1.3rem; font-weight: 800; margin-bottom: 8px; color: var(--dark); }
+    .success-msg p { color: var(--gray-500); font-size: 0.95rem; }
+
+    /* ===== FINAL CTA ===== */
+    #cta { background: var(--dark); text-align: center; }
+    #cta .section-title { color: white; }
+    #cta .section-sub { color: rgba(255,255,255,0.6); margin: 0 auto 32px; }
+    #cta .btn-primary { font-size: 1.05rem; padding: 16px 40px; }
+
+    /* ===== FOOTER ===== */
+    footer { background: #0F172A; padding: 40px 24px; }
+    .footer-inner { max-width: 1120px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: gap; gap: 20px; }
+    .footer-logo { color: white; font-weight: 700; font-size: 1.1rem; display: flex; align-items: center; gap: 8px; }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { color: rgba(255,255,255,0.5); font-size: 0.875rem; transition: color var(--transition); }
+    .footer-links a:hover { color: white; }
+    .footer-copy { color: rgba(255,255,255,0.35); font-size: 0.8rem; }
+
+    /* ===== MODAL ===== */
+    .modal-overlay {
+      display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 200;
+      align-items: center; justify-content: center; padding: 24px;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal {
+      background: white; border-radius: 20px; padding: 36px; max-width: 480px; width: 100%;
+      position: relative; max-height: 90vh; overflow-y: auto;
+      animation: modalIn .25s cubic-bezier(.4,0,.2,1);
+    }
+    @keyframes modalIn { from { opacity:0; transform: scale(.95) translateY(10px); } to { opacity:1; transform: scale(1) translateY(0); } }
+    .modal-close {
+      position: absolute; top: 16px; right: 16px; background: var(--gray-100); border: none;
+      border-radius: 50%; width: 32px; height: 32px; font-size: 1rem; cursor: pointer;
+      display: flex; align-items: center; justify-content: center; color: var(--gray-500);
+      transition: all var(--transition);
+    }
+    .modal-close:hover { background: var(--gray-300); }
+    .modal-icon { font-size: 2.5rem; margin-bottom: 14px; }
+    .modal h2 { font-size: 1.3rem; font-weight: 800; margin-bottom: 10px; }
+    .modal p { font-size: 0.9rem; color: var(--gray-500); line-height: 1.7; }
+
+    /* ===== SCROLL ANIMATIONS ===== */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.55s ease, transform 0.55s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      nav, .header-cta { display: none; }
+      .burger { display: flex; }
+      .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+      .hero-visual { order: -1; }
+      .phone-mockup { width: 220px; height: 400px; }
+      .float-badge { display: none; }
+      .hero-stats { gap: 20px; flex-wrap: wrap; }
+      section { padding: 56px 20px; }
+      .form-wrapper { padding: 28px 20px; }
+    }
+    @media (max-width: 480px) {
+      .hero-cta { flex-direction: column; }
+      .hero-cta .btn { text-align: center; justify-content: center; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header id="mainHeader">
+  <div class="header-inner">
+    <div class="logo">
+      <div class="logo-icon">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+        </svg>
+      </div>
+      StudyBuddy
+    </div>
+    <nav>
+      <a href="#features">Функции</a>
+      <a href="#benefits">Преимущества</a>
+      <a href="#reviews">Отзывы</a>
+      <a href="#register">Скачать</a>
+    </nav>
+    <a href="#register" class="btn btn-primary header-cta">Скачать приложение</a>
+    <div class="burger" id="burger">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#features">Функции</a>
+  <a href="#benefits">Преимущества</a>
+  <a href="#reviews">Отзывы</a>
+  <a href="#register">Скачать</a>
+</div>
+
+<!-- ===== HERO ===== -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="section-tag">📚 Для студентов</div>
+        <h1 class="hero-title">Планируй учёбу<br><span>легко</span> с StudyBuddy</h1>
+        <p class="hero-sub">Контролируйте задачи, дедлайны и прогресс — всё в одном приложении. Никаких пропущенных сроков.</p>
+        <div class="hero-cta">
+          <a href="#register" class="btn btn-primary btn-lg">⬇ Скачать сейчас</a>
+          <a href="#features" class="btn btn-outline btn-lg">Узнать больше</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><div class="stat-num">12 000+</div><div class="stat-label">Активных студентов</div></div>
+          <div class="stat"><div class="stat-num">4.8 ★</div><div class="stat-label">Рейтинг в App Store</div></div>
+          <div class="stat"><div class="stat-num">95%</div><div class="stat-label">Меньше пропусков сроков</div></div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="phone-mockup">
+          <div class="phone-screen">
+            <div class="phone-header">StudyBuddy</div>
+            <div class="phone-greeting">Привет, Алина 👋</div>
+            <div class="phone-date">Пятница, 29 мая 2026</div>
+            <div class="phone-progress-card">
+              <p>Недельный прогресс</p>
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+                <span style="color:white;font-size:0.75rem;font-weight:700;">68%</span>
+                <span style="color:rgba(255,255,255,0.7);font-size:0.65rem;">5 из 7 задач</span>
+              </div>
+              <div class="progress-bar"><div class="progress-fill"></div></div>
+            </div>
+            <div class="phone-tasks-title">Задачи на сегодня</div>
+            <div class="phone-task">
+              <div class="task-dot dot-green"></div>
+              <div><p>Лабораторная по физике</p><p class="task-time">Сдано ✓</p></div>
+            </div>
+            <div class="phone-task">
+              <div class="task-dot dot-yellow"></div>
+              <div><p>Реферат по истории</p><p class="task-time">До 18:00</p></div>
+            </div>
+            <div class="phone-task">
+              <div class="task-dot dot-red"></div>
+              <div><p>Тест по математике</p><p class="task-time">Завтра 09:00</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="float-badge badge-1">📅 3 дедлайна<br>на этой неделе</div>
+        <div class="float-badge badge-2">✅ Прогресс +24%</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FEATURES ===== -->
+<section id="features">
+  <div class="container">
+    <div class="text-center reveal">
+      <div class="section-tag">Функции</div>
+      <h2 class="section-title">Всё для успешной учёбы</h2>
+      <p class="section-sub">Пять ключевых инструментов, которые помогут вам учиться эффективнее и не пропускать ни одного важного дедлайна.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card reveal" data-modal="modal1">
+        <div class="feature-icon icon-purple">📋</div>
+        <div class="feature-title">Планирование по приоритетам</div>
+        <p class="feature-desc">Расставляйте задачи по важности: высокий, средний, низкий приоритет. Всегда знайте, что делать в первую очередь.</p>
+        <button class="feature-more-btn" onclick="openModal('modal1')">Подробнее →</button>
+      </div>
+      <div class="feature-card reveal" data-modal="modal2">
+        <div class="feature-icon icon-cyan">🔔</div>
+        <div class="feature-title">Умные уведомления</div>
+        <p class="feature-desc">Получайте напоминания о дедлайнах за 1 день, 3 часа и 30 минут. Настраивайте под себя.</p>
+        <button class="feature-more-btn" onclick="openModal('modal2')">Подробнее →</button>
+      </div>
+      <div class="feature-card reveal" data-modal="modal3">
+        <div class="feature-icon icon-green">📊</div>
+        <div class="feature-title">Визуализация прогресса</div>
+        <p class="feature-desc">Отслеживайте прогресс по каждому предмету с графиками и диаграммами. Видите, как растёте.</p>
+        <button class="feature-more-btn" onclick="openModal('modal3')">Подробнее →</button>
+      </div>
+      <div class="feature-card reveal" data-modal="modal4">
+        <div class="feature-icon icon-orange">🤝</div>
+        <div class="feature-title">Совместная работа</div>
+        <p class="feature-desc">Создавайте общие проекты с одногруппниками, распределяйте задачи и следите за прогрессом команды.</p>
+        <button class="feature-more-btn" onclick="openModal('modal4')">Подробнее →</button>
+      </div>
+      <div class="feature-card reveal" data-modal="modal5">
+        <div class="feature-icon icon-pink">📅</div>
+        <div class="feature-title">Календарь сессии</div>
+        <p class="feature-desc">Автоматически структурирует расписание сессии, экзаменов и зачётов в удобный календарь.</p>
+        <button class="feature-more-btn" onclick="openModal('modal5')">Подробнее →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BENEFITS ===== -->
+<section id="benefits">
+  <div class="container">
+    <div class="text-center reveal">
+      <div class="section-tag">Преимущества</div>
+      <h2 class="section-title">Почему студенты выбирают нас</h2>
+      <p class="section-sub">StudyBuddy создан студентами для студентов. Мы знаем, что важно.</p>
+    </div>
+    <div class="benefits-grid">
+      <div class="benefit-card reveal">
+        <span class="benefit-emoji">⏱</span>
+        <div class="benefit-title">Экономия времени</div>
+        <p class="benefit-text">В среднем студенты экономят 2 часа в день благодаря чёткому планированию задач.</p>
+      </div>
+      <div class="benefit-card reveal">
+        <span class="benefit-emoji">🎯</span>
+        <div class="benefit-title">Простота использования</div>
+        <p class="benefit-text">Интуитивный интерфейс без лишних функций. Разберётесь за 5 минут, без инструкций.</p>
+      </div>
+      <div class="benefit-card reveal">
+        <span class="benefit-emoji">🚀</span>
+        <div class="benefit-title">Рост мотивации</div>
+        <p class="benefit-text">Визуальный прогресс и достижения поддерживают желание учиться и двигаться вперёд.</p>
+      </div>
+      <div class="benefit-card reveal">
+        <span class="benefit-emoji">🔍</span>
+        <div class="benefit-title">Контроль прогресса</div>
+        <p class="benefit-text">Полная прозрачность: видите, сколько сделано и сколько осталось по каждому предмету.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== REVIEWS ===== -->
+<section id="reviews">
+  <div class="container">
+    <div class="text-center reveal">
+      <div class="section-tag">Отзывы</div>
+      <h2 class="section-title">Что говорят студенты</h2>
+      <p class="section-sub">Реальные отзывы от реальных пользователей StudyBuddy.</p>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card reveal">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">«С StudyBuddy я перестала пропускать дедлайны. Приложение напоминает обо всём заранее, и я наконец спокойно сплю перед сессией!»</p>
+        <div class="reviewer">
+          <div class="reviewer-avatar" style="background:linear-gradient(135deg,#4F46E5,#06B6D4)">А</div>
+          <div><div class="reviewer-name">Алина Соколова</div><div class="reviewer-role">3 курс, ИПТИП</div></div>
+        </div>
+      </div>
+      <div class="review-card reveal">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">«Использую уже полгода. Функция совместных задач просто спасение при групповых проектах — все видят, кто что делает.»</p>
+        <div class="reviewer">
+          <div class="reviewer-avatar" style="background:linear-gradient(135deg,#059669,#34D399)">М</div>
+          <div><div class="reviewer-name">Максим Петров</div><div class="reviewer-role">Магистратура, 1 курс</div></div>
+        </div>
+      </div>
+      <div class="review-card reveal">
+        <div class="review-stars">★★★★☆</div>
+        <p class="review-text">«Очень удобная визуализация прогресса. Теперь я понимаю, где трачу больше времени и как грамотно распределить нагрузку.»</p>
+        <div class="reviewer">
+          <div class="reviewer-avatar" style="background:linear-gradient(135deg,#B45309,#F59E0B)">Д</div>
+          <div><div class="reviewer-name">Дарья Иванова</div><div class="reviewer-role">2 курс, факультет дизайна</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== REGISTER FORM ===== -->
+<section id="register">
+  <div class="container">
+    <div class="text-center reveal">
+      <div class="section-tag" style="background:rgba(255,255,255,0.2);color:white;">Начать сейчас</div>
+      <h2 class="section-title">Получи доступ бесплатно</h2>
+      <p class="section-sub">Зарегистрируйтесь и начните планировать учёбу прямо сейчас. Первые 30 дней — бесплатно.</p>
+    </div>
+    <div class="form-wrapper reveal" id="formWrapper">
+      <div id="formContent">
+        <div class="form-group">
+          <label for="nameInput">Ваше имя</label>
+          <input type="text" id="nameInput" placeholder="Введите ваше имя" />
+          <div class="error-msg" id="nameError">Пожалуйста, введите имя (минимум 2 символа)</div>
+        </div>
+        <div class="form-group">
+          <label for="emailInput">Email</label>
+          <input type="email" id="emailInput" placeholder="example@email.com" />
+          <div class="error-msg" id="emailError">Введите корректный email адрес</div>
+        </div>
+        <button class="form-btn" onclick="submitForm()">Получить доступ →</button>
+      </div>
+      <div class="success-msg" id="successMsg">
+        <div class="success-icon">🎉</div>
+        <h3>Добро пожаловать в StudyBuddy!</h3>
+        <p>Письмо с инструкцией по скачиванию отправлено на ваш email. Проверьте входящие!</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FINAL CTA ===== -->
+<section id="cta">
+  <div class="container reveal">
+    <div class="section-tag" style="background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.7);">Пора начать</div>
+    <h2 class="section-title">Скачай приложение и начни<br>планировать прямо сейчас</h2>
+    <p class="section-sub">Доступно на iOS и Android. Бесплатно на первый месяц.</p>
+    <a href="#register" class="btn btn-primary btn-lg">⬇ Скачать StudyBuddy</a>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <div class="logo-icon" style="width:28px;height:28px;border-radius:7px;">
+        <svg viewBox="0 0 24 24" style="width:14px;height:14px;fill:white;">
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+        </svg>
+      </div>
+      StudyBuddy
+    </div>
+    <div class="footer-links">
+      <a href="#">ВКонтакте</a>
+      <a href="#">Telegram</a>
+      <a href="#">Instagram</a>
+    </div>
+    <div style="font-size:0.8rem;color:rgba(255,255,255,0.35);">
+      Политика конфиденциальности: данные пользователей хранятся на защищённых серверах и не передаются третьим лицам. Использование сервиса означает согласие с условиями использования.
+    </div>
+    <div class="footer-copy">© 2026 StudyBuddy. Все права защищены.</div>
+  </div>
+</footer>
+
+<!-- ===== MODALS ===== -->
+<div class="modal-overlay" id="modal1" onclick="closeModalOnOverlay(event,'modal1')">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('modal1')">✕</button>
+    <div class="modal-icon">📋</div>
+    <h2>Планирование по приоритетам</h2>
+    <p>Система приоритетов StudyBuddy основана на матрице Эйзенхауэра, адаптированной для студентов. Каждая задача получает уровень: <strong>Срочно и важно</strong>, <strong>Важно, не срочно</strong> или <strong>Повседневные дела</strong>. Алгоритм автоматически предлагает оптимальный порядок выполнения, учитывая дедлайны и объём работы.</p>
+  </div>
+</div>
+<div class="modal-overlay" id="modal2" onclick="closeModalOnOverlay(event,'modal2')">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('modal2')">✕</button>
+    <div class="modal-icon">🔔</div>
+    <h2>Умные уведомления</h2>
+    <p>StudyBuddy отправляет уведомления в три этапа: за <strong>24 часа</strong> (общее напоминание), за <strong>3 часа</strong> (призыв начать работу) и за <strong>30 минут</strong> (финальный дедлайн). Все интервалы настраиваются. Есть тихий режим для ночного времени.</p>
+  </div>
+</div>
+<div class="modal-overlay" id="modal3" onclick="closeModalOnOverlay(event,'modal3')">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('modal3')">✕</button>
+    <div class="modal-icon">📊</div>
+    <h2>Визуализация прогресса</h2>
+    <p>Отслеживайте успеваемость по каждому предмету с помощью интерактивных графиков. Видите недельную и месячную динамику, процент выполненных задач и тенденции. Это помогает вовремя заметить проблемный предмет и скорректировать план.</p>
+  </div>
+</div>
+<div class="modal-overlay" id="modal4" onclick="closeModalOnOverlay(event,'modal4')">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('modal4')">✕</button>
+    <div class="modal-icon">🤝</div>
+    <h2>Совместная работа</h2>
+    <p>Создавайте командные проекты и приглашайте одногруппников. Распределяйте задачи, устанавливайте общие дедлайны и в реальном времени видите, кто что сделал. Встроенный чат упрощает координацию без лишних мессенджеров.</p>
+  </div>
+</div>
+<div class="modal-overlay" id="modal5" onclick="closeModalOnOverlay(event,'modal5')">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('modal5')">✕</button>
+    <div class="modal-icon">📅</div>
+    <h2>Календарь сессии</h2>
+    <p>Введите расписание экзаменов один раз — и приложение автоматически создаст план подготовки. Распределит задачи по дням, учтёт сложность каждого предмета и оставит буферные дни для повторения. Никакого стресса в сессию!</p>
+  </div>
+</div>
+
+<script>
+  /* ===== BURGER MENU ===== */
+  const burger = document.getElementById('burger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  burger.addEventListener('click', () => {
+    burger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      burger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+    });
+  });
+
+  /* ===== STICKY HEADER ===== */
+  const header = document.getElementById('mainHeader');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 10);
+  });
+
+  /* ===== SCROLL ANIMATIONS ===== */
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => observer.observe(el));
+
+  /* ===== FORM VALIDATION ===== */
+  function validateEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
+  }
+
+  function submitForm() {
+    const name = document.getElementById('nameInput');
+    const email = document.getElementById('emailInput');
+    const nameErr = document.getElementById('nameError');
+    const emailErr = document.getElementById('emailError');
+    let valid = true;
+
+    name.classList.remove('error'); nameErr.classList.remove('visible');
+    email.classList.remove('error'); emailErr.classList.remove('visible');
+
+    if (name.value.trim().length < 2) {
+      name.classList.add('error'); nameErr.classList.add('visible'); valid = false;
+    }
+    if (!validateEmail(email.value)) {
+      email.classList.add('error'); emailErr.classList.add('visible'); valid = false;
+    }
+    if (!valid) return;
+
+    document.getElementById('formContent').style.display = 'none';
+    document.getElementById('successMsg').classList.add('visible');
+  }
+
+  /* ===== MODALS ===== */
+  function openModal(id) {
+    document.getElementById(id).classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal(id) {
+    document.getElementById(id).classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function closeModalOnOverlay(e, id) {
+    if (e.target === document.getElementById(id)) closeModal(id);
+  }
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.modal-overlay.open').forEach(m => {
+        m.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    }
+  });
+</script>
+</body>
+</html>
