@@ -2,7 +2,9 @@
 
 > Интерактивная адаптивная посадочная страница мобильного приложения для планирования учёбы
 
-🌐 **[Открыть сайт](https://Marth444.github.io/studybuddy-landing)**
+🌐 **[Открыть сайт](https://marth444.github.io/studybuddy-landing)**
+🐙 **[GitHub репозиторий](https://github.com/Marth444/studybuddy-landing)**
+🎨 **[Figma — Wireframe и прототип](https://www.figma.com/design/kwHYcjEPd1DAGXig0aQWmK/%D0%A1%D0%B5%D1%80%D0%B5%D0%B3%D0%B8%D0%BD-%D0%95.---StudyBuddy?node-id=0-1&t=qvHFNMkFZIaVyMxp-1)**
 
 ---
 
@@ -18,13 +20,14 @@
 
 | Раздел | Описание |
 |---|---|
-| Header | Фиксированная навигация с логотипом и CTA-кнопкой |
-| Hero | Заголовок, подзаголовок, статистика, иллюстрация приложения |
+| Header | Фиксированная навигация, кнопки «Войти» и «Начать бесплатно» |
+| Hero | Заголовок, подзаголовок, статистика, мокап приложения |
 | Функции | 5 карточек с модальными окнами |
 | Преимущества | 4 карточки с hover-анимацией |
-| Отзывы | 3 отзыва с рейтингом |
-| Регистрация | Форма с JS-валидацией и success-state |
+| Отзывы | 3 отзыва с рейтингом и прогресс-баром |
+| Регистрация / Вход | Форма с вкладками, JS-валидацией и success-state |
 | Footer | Соцсети и политика конфиденциальности |
+| Личный кабинет | Задачи, предметы, прогресс, профиль с аватаркой |
 
 ---
 
@@ -32,7 +35,7 @@
 
 - **HTML5** — семантическая разметка (`<header>`, `<section>`, `<footer>`)
 - **CSS3** — Flexbox, Grid, CSS-переменные, media queries, анимации
-- **JavaScript (ES6+)** — Intersection Observer, валидация формы, модальные окна
+- **JavaScript (ES6+)** — Intersection Observer, валидация, модальные окна, localStorage
 - Без фреймворков и библиотек
 
 ---
@@ -43,7 +46,12 @@
 - [x] Sticky header с визуальным эффектом при скролле
 - [x] 5 модальных окон с анимацией и закрытием по Escape
 - [x] Анимации появления при скролле (Intersection Observer API)
-- [x] Валидация формы: email + имя, без перезагрузки страницы
+- [x] Регистрация и вход с валидацией (имя, email, пароль)
+- [x] Хранение пользователей в localStorage
+- [x] Личный кабинет: задачи, предметы, прогресс, профиль
+- [x] Цветные теги предметов для задач (пользователь создаёт сам)
+- [x] Прогресс-бары по каждому предмету отдельно
+- [x] Загрузка аватарки (сжатие через Canvas API)
 - [x] Адаптивность: 320px → 1440px (mobile-first)
 
 ---
@@ -54,13 +62,23 @@
 
 ```bash
 # Клонировать репозиторий
-git clone https://github.com/ВАШ_НИК/studybuddy-landing.git
+git clone https://github.com/Marth444/studybuddy-landing.git
 
 # Открыть файл
 open index.html
 ```
 
-Или перейдите по ссылке деплоя: **[Marth444.github.io/studybuddy-landing](https://Marth444.github.io/studybuddy-landing)**
+Или перейдите по ссылке деплоя: **[marth444.github.io/studybuddy-landing](https://marth444.github.io/studybuddy-landing)**
+
+---
+
+## Дизайн
+
+| Артефакт | Ссылка |
+|---|---|
+| Figma (wireframe + прототип) | [Открыть в Figma](https://www.figma.com/design/kwHYcjEPd1DAGXig0aQWmK/%D0%A1%D0%B5%D1%80%D0%B5%D0%B3%D0%B8%D0%BD-%D0%95.---StudyBuddy?node-id=0-1&t=qvHFNMkFZIaVyMxp-1) |
+| Wireframe SVG | `wireframe_v2.svg` |
+| Прототип SVG | `prototype_v2.svg` |
 
 ---
 
@@ -79,8 +97,10 @@ open index.html
 
 ```
 studybuddy-landing/
-└── index.html      # Вся страница: HTML + CSS + JS в одном файле
-└── README.md       # Документация
+├── index.html          # Вся страница: HTML + CSS + JS
+├── README.md           # Документация
+├── wireframe_v2.svg    # Wireframe
+└── prototype_v2.svg    # Hi-fi прототип
 ```
 
 ---
@@ -91,4 +111,4 @@ studybuddy-landing/
 
 ---
 
-*Учебный проект. ТЗ №3 — StudyBuddy.*
+*Учебный проект. ТЗ №3 — StudyBuddy. Кафедра компьютерного дизайна, ИПТИП, 2025–2026.*
